@@ -64,5 +64,12 @@ describe Cart do
       expect(@cart.calculate).to eq(340+270+380+300)
     end
   end
+
+  context "第五種情境：五本不同 打20%折扣" do
+    it '第一集買一本 第二集買兩本 第三集買八本 第四集買四本 第五集買七本' do
+      @cart.add({ "1st": 1, "2nd": 2, "3rd": 8, "4th": 4, "5th": 7})
+      expect(@cart.calculate).to eq(400+340+270*2+190*3+100)
+    end
+  end
   
 end
