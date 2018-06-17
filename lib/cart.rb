@@ -6,9 +6,11 @@ class Cart
 
   def calculate
     total = 0
-    ＠ordered_items = @ordered_items.delete_if{ |i| i == 0}
+    @ordered_items = @ordered_items.delete_if{ |i| i == 0}
       while @ordered_items.size > 0
-        if @ordered_items.size == 3
+        if @ordered_items.size == 4
+          total += 4*PRICE*0.85
+        elsif @ordered_items.size == 3
           total += 3*PRICE*0.9
         elsif @ordered_items.size == 2
           total += 2 * PRICE * 0.95
